@@ -1,8 +1,10 @@
 # Estarei resolvendo algumas problemas de raciocinio lógico com o python. O objetivo aqui é inteiramente treinar meu raciocinio e a minha capacidade de transformar meu pensando em código. Já declaro de antemão que as minhas soluções não são as únicas possíveis, essa foi a minha maneira de fazer, caso queira compartilhar a sua, me chame no linkedin, será um prazer aprender contigo: https://www.linkedin.com/in/marcelolealgonzalez/
 
-#Os problemas estão em espanhol mesmo 
+#Os problemas estão em espanhol e inglês 
 
+#from msilib.schema import Error
 import random
+from tkinter import N
 
 #  1 - Definir una función max() que tome como argumento dos números y devuelva el mayor de ellos. (Es cierto que python tiene una función max() incorporada, pero hacerla nosotros mismos es un muy buen ejercicio.
 
@@ -105,6 +107,81 @@ def funcao_inversa(frase):
     for elem in range(tamanho_lista,1):
         elem = abs(elem)
         nova_frase += frase[elem]
-    print(nova_frase)
+    return nova_frase
 
 funcao_inversa('eu sou um gostosao')
+
+
+# 7 - Define a function is_palindrome() that recognizes palindromes (that is, words that have the same appearance written inverted), example: is_palindrome ("radar") would have to return True.
+
+def is_palindrome(sentence):
+    palindromo = funcao_inversa(sentence)
+    if palindromo == sentence: 
+        return True
+    else:
+        return False
+
+print(is_palindrome('aea'))
+
+
+
+# 8 - Define a function overlay() that takes two lists and returns True if they have at least 1 member in common or returns False otherwise. Write the function using the nested for loop
+
+def overlay(lista1, lista2):
+    for elem in lista1:
+        if elem in lista2:
+            return True
+    return False
+
+#ou
+
+def overlay2(lista1, lista2):
+    for elem1 in lista1:
+        for elem2 in lista2:
+            if elem1 == elem2:
+                return True
+    return False
+
+print("Listas com elementos em comum")
+print(overlay([1,3,5,7,9,0],[2,6,6,8,8,0]))
+print(overlay2([1,3,5,7,9,0],[2,6,6,8,8]))
+
+
+# 9 - Define a function generate_n_characters() that takes an integer n and returns the character multiplied by n. For example: generate_n_characters(5, "x") should return "xxxxx".
+
+def generate_n_characters(character, num):
+    if (int(num)):
+        return character*num
+
+print(generate_n_characters("ma", 4))
+
+#ou
+
+def generate_n_characters2(character, num):
+    string = ""
+    for x in range(0, num):
+        string += character
+    return string
+
+print(generate_n_characters2("fiu", 11))
+
+
+
+# 10 - Define a histogram procedure() that takes a list of integers and prints a histogram to the screen. Example: procedure([4, 9, 7]) should print the following:
+
+def procedure(lista):
+    for elem in lista:
+        print(elem*"*")
+
+procedure([4, 3, 2])
+
+
+#ou, se quiser com espaco entre as "barras"
+
+
+def procedure2(lista):
+    for elem in lista:
+        histogram = elem*"*"
+        print(f"{histogram}\n")
+
+procedure2([4, 3, 2])
